@@ -29,7 +29,7 @@ Dưới đây là các tài liệu chi tiết về thiết kế và triển khai
 | :--- | :--- |
 | **Báo cáo đồ án (Full)** | [Tải về Báo cáo PDF](./docs/NHOM_17_DCINE_Report.pdf) |
 | **Slide thuyết trình** | [Xem Slide PowerPoint](./docs/NHOM_17_Slide.pdf) |
-| **Thiết kế Database (ERD)** | [Xem sơ đồ ERD](./docs/diagrams/ERD/D-cine.png) |
+| **Thiết kế Database (ERD)** | [Xem sơ đồ ERD](./docs/diagrams/ERD/dcine_erd.drawio.png) |
 | **Sơ đồ Use Case tổng quát** | [Xem sơ đồ Use Case](./docs/diagrams/UseCase_digrams/UseCase_Overview.drawio.png) |
 | **Sơ đồ tuần tự đặt vé và thanh toán(Sequence)** | [Xem thư mục Sequence Diagrams](./docs/diagrams/Sequence_digrams/Booking_Ticket_Sequence_Diagram.png) |
 
@@ -53,7 +53,7 @@ Hệ thống được xây dựng dựa trên các công nghệ hiện đại v�
 ### 1. Sơ đồ Quan hệ thực thể (ERD)
 *(Mô tả cấu trúc dữ liệu của hệ thống bao gồm các bảng Account, Movie, Showtime, Booking, Seat...)*
 
-![ERD Diagram](./docs/diagrams/ERD/D-cine.png)
+![ERD Diagram](./docs/diagrams/ERD/dcine_erd.drawio.png)
 
 ### 2. Sơ đồ Tuần tự: Quy trình Đặt vé & Thanh toán
 *(Mô tả luồng tương tác giữa User -> Controller -> Service -> Redis/DB)*
@@ -84,7 +84,17 @@ Hệ thống được xây dựng dựa trên các công nghệ hiện đại v�
     spring.data.redis.port=6379
     ```
 
-### Bước 2: Chạy Backend (Spring Boot)
+### Bước 2: Cấu hình địa chỉ IP LAN (Quan trọng ⚠️)
+Để điện thoại có thể truy cập được trang thanh toán, bạn cần đổi `localhost` thành địa chỉ **IP mạng LAN** của máy tính (Ví dụ: `192.168.1.10`):
+
+1.  **Backend:** Mở file `src/main/java/com/example/cinema/service/CheckoutService.java`.
+    * Tìm dòng: `String IP = "10.45.69.10";`
+    * Sửa thành IP LAN hiện tại của máy bạn.
+2.  **Frontend:** Mở file `mobile-pay.html` (hoặc `payment-realtime.js`).
+    * Tìm các đoạn code kết nối Socket/API đang để `localhost`.
+    * Đổi thành IP LAN tương ứng để điện thoại có thể kết nối.
+    
+### Bước 3: Chạy Backend (Spring Boot)
 Di chuyển vào thư mục backend và chạy lệnh:
 ```bash
 cd backend
