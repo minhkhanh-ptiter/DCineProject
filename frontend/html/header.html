@@ -1,0 +1,49 @@
+<header id="site-header" class="header">
+  <div class="hdr-container">
+    <a href="index.html" class="logo">
+      <span class="d">D</span><span class="cine">cine</span>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="menu">
+        <li class="mi has-dd">
+          <a href="movies.html" class="nav-link" data-match="movies">Phim</a>
+          <div class="dd">
+            <a href="movies.html?status=now">Đang chiếu</a>
+            <a href="movies.html?status=soon">Sắp chiếu</a>
+          </div>
+        </li>
+        <li class="mi">
+          <a href="index.html#deals" class="nav-link scroll-link">Voucher</a>
+        </li>
+        <li class="mi">
+          <a href="index.html#member" class="nav-link scroll-link">Thành viên</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="hdr-tools">
+      
+      <div class="search-wrapper">
+        <button id="searchBtn" class="icon-btn" aria-label="Tìm kiếm">
+            <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20L17 17"/></svg>
+        </button>
+        <form id="searchForm" class="search-form" action="movies.html">
+            <input id="searchInput" type="text" name="q" placeholder="Tên phim, diễn viên..." autocomplete="off">
+        </form>
+      </div>
+
+      <div id="guestAction" class="auth-group guest-only">
+        <a href="D_cine_login.html" class="btn-text">Đăng nhập</a>
+        <a href="D_cine_signup.html" class="btn-primary">Đăng ký</a>
+      </div>
+
+      <a href="profile.html" id="userAction" class="user-chip auth-only" style="display: none;">
+        <div class="avatar-frame">
+          <img id="avatarImg" src="" alt="Avatar" style="display: none;"> <span id="avatarFallback">U</span> </div>
+        <span id="userName" class="user-name">User</span>
+      </a>
+
+    </div>
+  </div>
+</header>
